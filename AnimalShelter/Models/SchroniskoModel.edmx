@@ -1,0 +1,1015 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnimalShelterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="Gat_GIDNumer" />
+          </Key>
+          <Property Name="Gat_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gat_Nazwa" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KarmaZapotrzebowanie">
+          <Key>
+            <PropertyRef Name="Zap_GIDNumer" />
+          </Key>
+          <Property Name="Zap_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Zap_GatNumer" Type="int" Nullable="false" />
+          <Property Name="Zap_NazwaKarmy" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Zap_IloscAktualna" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Zap_IloscPotrzebna" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Zap_Jm" Type="varchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kojec">
+          <Key>
+            <PropertyRef Name="Koj_GIDNumer" />
+          </Key>
+          <Property Name="Koj_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Koj_StrNumer" Type="int" Nullable="false" />
+          <Property Name="Koj_Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Koj_Nazwa" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KsiazeczkaZdrowiaElem">
+          <Key>
+            <PropertyRef Name="KzE_GIDLp" />
+          </Key>
+          <Property Name="KzE_GIDNumer" Type="int" Nullable="false" />
+          <Property Name="KzE_GIDLp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KzE_OpisBadania" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="KzE_WynikBadania" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="KzE_DataBadania" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KsiazeczkaZdrowiaNag">
+          <Key>
+            <PropertyRef Name="KzN_GIDNumer" />
+          </Key>
+          <Property Name="KzN_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KzN_ZwrNumer" Type="int" Nullable="false" />
+          <Property Name="KzN_Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="KzN_DataUtworzenia" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leczenie">
+          <Key>
+            <PropertyRef Name="Lec_GIDLp" />
+          </Key>
+          <Property Name="Lec_GIDNumer" Type="int" Nullable="false" />
+          <Property Name="Lec_GIDLp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lec_Opis" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Strefa">
+          <Key>
+            <PropertyRef Name="Str_GIDNumer" />
+          </Key>
+          <Property Name="Str_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Str_GatNumer" Type="int" Nullable="false" />
+          <Property Name="Str_Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Str_Nazwa" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zdjecie">
+          <Key>
+            <PropertyRef Name="Zdj_GIDNumer" />
+          </Key>
+          <Property Name="Zdj_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Zdj_ZwrNumer" Type="int" Nullable="false" />
+          <Property Name="Zdj_Tytul" Type="varchar" MaxLength="250" />
+          <Property Name="Zdj_Sciezka" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zwierze">
+          <Key>
+            <PropertyRef Name="Zwr_GIDNumer" />
+          </Key>
+          <Property Name="Zwr_GIDNumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Zwr_GatNumer" Type="int" Nullable="false" />
+          <Property Name="Zwr_Imie" Type="varchar" MaxLength="20" />
+          <Property Name="Zwr_DataPrzyjecia" Type="date" Nullable="false" />
+          <Property Name="Zwr_Plec" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Zwr_Avatar" Type="int" />
+          <Property Name="Zwr_Opis" Type="varchar" MaxLength="240" />
+          <Property Name="Zwr_Rasa" Type="varchar" MaxLength="40" />
+          <Property Name="Zwr_KojNumer" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KarmaZapotrzebowanie_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="KarmaZapotrzebowanie" Type="Self.KarmaZapotrzebowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="KarmaZapotrzebowanie">
+              <PropertyRef Name="Zap_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kojec_Strefa">
+          <End Role="Strefa" Type="Self.Strefa" Multiplicity="1" />
+          <End Role="Kojec" Type="Self.Kojec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Strefa">
+              <PropertyRef Name="Str_GIDNumer" />
+            </Principal>
+            <Dependent Role="Kojec">
+              <PropertyRef Name="Koj_StrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag">
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="1" />
+          <End Role="KsiazeczkaZdrowiaElem" Type="Self.KsiazeczkaZdrowiaElem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_GIDNumer" />
+            </Principal>
+            <Dependent Role="KsiazeczkaZdrowiaElem">
+              <PropertyRef Name="KzE_GIDNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KsiazeczkaZdrowiaNag_Zwierze">
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="1" />
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zwierze">
+              <PropertyRef Name="Zwr_GIDNumer" />
+            </Principal>
+            <Dependent Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_ZwrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leczenie_KsiazeczkaZdrowiaElem">
+          <End Role="KsiazeczkaZdrowiaElem" Type="Self.KsiazeczkaZdrowiaElem" Multiplicity="1" />
+          <End Role="Leczenie" Type="Self.Leczenie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaElem">
+              <PropertyRef Name="KzE_GIDLp" />
+            </Principal>
+            <Dependent Role="Leczenie">
+              <PropertyRef Name="Lec_GIDLp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leczenie_KsiazeczkaZdrowiaNag">
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="1" />
+          <End Role="Leczenie" Type="Self.Leczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_GIDNumer" />
+            </Principal>
+            <Dependent Role="Leczenie">
+              <PropertyRef Name="Lec_GIDNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Strefa_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Strefa" Type="Self.Strefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="Strefa">
+              <PropertyRef Name="Str_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zdjecie_Zwierze">
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="1" />
+          <End Role="Zdjecie" Type="Self.Zdjecie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zwierze">
+              <PropertyRef Name="Zwr_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zdjecie">
+              <PropertyRef Name="Zdj_ZwrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Kojec">
+          <End Role="Kojec" Type="Self.Kojec" Multiplicity="0..1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kojec">
+              <PropertyRef Name="Koj_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_KojNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Zdjecie">
+          <End Role="Zdjecie" Type="Self.Zdjecie" Multiplicity="0..1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zdjecie">
+              <PropertyRef Name="Zdj_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimalShelterModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KarmaZapotrzebowanie" EntityType="Self.KarmaZapotrzebowanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kojec" EntityType="Self.Kojec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KsiazeczkaZdrowiaElem" EntityType="Self.KsiazeczkaZdrowiaElem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KsiazeczkaZdrowiaNag" EntityType="Self.KsiazeczkaZdrowiaNag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leczenie" EntityType="Self.Leczenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Strefa" EntityType="Self.Strefa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zdjecie" EntityType="Self.Zdjecie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zwierze" EntityType="Self.Zwierze" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KarmaZapotrzebowanie_Gatunek" Association="Self.FK_KarmaZapotrzebowanie_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="KarmaZapotrzebowanie" EntitySet="KarmaZapotrzebowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kojec_Strefa" Association="Self.FK_Kojec_Strefa">
+            <End Role="Strefa" EntitySet="Strefa" />
+            <End Role="Kojec" EntitySet="Kojec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag" Association="Self.FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag">
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+            <End Role="KsiazeczkaZdrowiaElem" EntitySet="KsiazeczkaZdrowiaElem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KsiazeczkaZdrowiaNag_Zwierze" Association="Self.FK_KsiazeczkaZdrowiaNag_Zwierze">
+            <End Role="Zwierze" EntitySet="Zwierze" />
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leczenie_KsiazeczkaZdrowiaElem" Association="Self.FK_Leczenie_KsiazeczkaZdrowiaElem">
+            <End Role="KsiazeczkaZdrowiaElem" EntitySet="KsiazeczkaZdrowiaElem" />
+            <End Role="Leczenie" EntitySet="Leczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leczenie_KsiazeczkaZdrowiaNag" Association="Self.FK_Leczenie_KsiazeczkaZdrowiaNag">
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+            <End Role="Leczenie" EntitySet="Leczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Strefa_Gatunek" Association="Self.FK_Strefa_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Strefa" EntitySet="Strefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zdjecie_Zwierze" Association="Self.FK_Zdjecie_Zwierze">
+            <End Role="Zwierze" EntitySet="Zwierze" />
+            <End Role="Zdjecie" EntitySet="Zdjecie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Gatunek" Association="Self.FK_Zwierze_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Kojec" Association="Self.FK_Zwierze_Kojec">
+            <End Role="Kojec" EntitySet="Kojec" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Zdjecie" Association="Self.FK_Zwierze_Zdjecie">
+            <End Role="Zdjecie" EntitySet="Zdjecie" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnimalShelterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="Gat_GIDNumer" />
+          </Key>
+          <Property Name="Gat_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gat_Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KarmaZapotrzebowanie" Relationship="Self.FK_KarmaZapotrzebowanie_Gatunek" FromRole="Gatunek" ToRole="KarmaZapotrzebowanie" />
+          <NavigationProperty Name="Strefa" Relationship="Self.FK_Strefa_Gatunek" FromRole="Gatunek" ToRole="Strefa" />
+          <NavigationProperty Name="Zwierze" Relationship="Self.FK_Zwierze_Gatunek" FromRole="Gatunek" ToRole="Zwierze" />
+        </EntityType>
+        <EntityType Name="KarmaZapotrzebowanie">
+          <Key>
+            <PropertyRef Name="Zap_GIDNumer" />
+          </Key>
+          <Property Name="Zap_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zap_GatNumer" Type="Int32" Nullable="false" />
+          <Property Name="Zap_NazwaKarmy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zap_IloscAktualna" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Zap_IloscPotrzebna" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Zap_Jm" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Gatunek" Relationship="Self.FK_KarmaZapotrzebowanie_Gatunek" FromRole="KarmaZapotrzebowanie" ToRole="Gatunek" />
+        </EntityType>
+        <EntityType Name="Kojec">
+          <Key>
+            <PropertyRef Name="Koj_GIDNumer" />
+          </Key>
+          <Property Name="Koj_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Koj_StrNumer" Type="Int32" Nullable="false" />
+          <Property Name="Koj_Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Koj_Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Strefa" Relationship="Self.FK_Kojec_Strefa" FromRole="Kojec" ToRole="Strefa" />
+          <NavigationProperty Name="Zwierze" Relationship="Self.FK_Zwierze_Kojec" FromRole="Kojec" ToRole="Zwierze" />
+        </EntityType>
+        <EntityType Name="KsiazeczkaZdrowiaElem">
+          <Key>
+            <PropertyRef Name="KzE_GIDLp" />
+          </Key>
+          <Property Name="KzE_GIDNumer" Type="Int32" Nullable="false" />
+          <Property Name="KzE_GIDLp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KzE_OpisBadania" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KzE_WynikBadania" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KzE_DataBadania" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="KsiazeczkaZdrowiaNag" Relationship="Self.FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag" FromRole="KsiazeczkaZdrowiaElem" ToRole="KsiazeczkaZdrowiaNag" />
+          <NavigationProperty Name="Leczenie" Relationship="Self.FK_Leczenie_KsiazeczkaZdrowiaElem" FromRole="KsiazeczkaZdrowiaElem" ToRole="Leczenie" />
+        </EntityType>
+        <EntityType Name="KsiazeczkaZdrowiaNag">
+          <Key>
+            <PropertyRef Name="KzN_GIDNumer" />
+          </Key>
+          <Property Name="KzN_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KzN_ZwrNumer" Type="Int32" Nullable="false" />
+          <Property Name="KzN_Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KzN_DataUtworzenia" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="KsiazeczkaZdrowiaElem" Relationship="Self.FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag" FromRole="KsiazeczkaZdrowiaNag" ToRole="KsiazeczkaZdrowiaElem" />
+          <NavigationProperty Name="Zwierze" Relationship="Self.FK_KsiazeczkaZdrowiaNag_Zwierze" FromRole="KsiazeczkaZdrowiaNag" ToRole="Zwierze" />
+          <NavigationProperty Name="Leczenie" Relationship="Self.FK_Leczenie_KsiazeczkaZdrowiaNag" FromRole="KsiazeczkaZdrowiaNag" ToRole="Leczenie" />
+        </EntityType>
+        <EntityType Name="Leczenie">
+          <Key>
+            <PropertyRef Name="Lec_GIDLp" />
+          </Key>
+          <Property Name="Lec_GIDNumer" Type="Int32" Nullable="false" />
+          <Property Name="Lec_GIDLp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lec_Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KsiazeczkaZdrowiaElem" Relationship="Self.FK_Leczenie_KsiazeczkaZdrowiaElem" FromRole="Leczenie" ToRole="KsiazeczkaZdrowiaElem" />
+          <NavigationProperty Name="KsiazeczkaZdrowiaNag" Relationship="Self.FK_Leczenie_KsiazeczkaZdrowiaNag" FromRole="Leczenie" ToRole="KsiazeczkaZdrowiaNag" />
+        </EntityType>
+        <EntityType Name="Strefa">
+          <Key>
+            <PropertyRef Name="Str_GIDNumer" />
+          </Key>
+          <Property Name="Str_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Str_GatNumer" Type="Int32" Nullable="false" />
+          <Property Name="Str_Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Str_Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Gatunek" Relationship="Self.FK_Strefa_Gatunek" FromRole="Strefa" ToRole="Gatunek" />
+          <NavigationProperty Name="Kojec" Relationship="Self.FK_Kojec_Strefa" FromRole="Strefa" ToRole="Kojec" />
+        </EntityType>
+        <EntityType Name="Zdjecie">
+          <Key>
+            <PropertyRef Name="Zdj_GIDNumer" />
+          </Key>
+          <Property Name="Zdj_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zdj_ZwrNumer" Type="Int32" Nullable="false" />
+          <Property Name="Zdj_Tytul" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Zdj_Sciezka" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Zwierze" Relationship="Self.FK_Zdjecie_Zwierze" FromRole="Zdjecie" ToRole="Zwierze" />
+          <NavigationProperty Name="Zwierze1" Relationship="Self.FK_Zwierze_Zdjecie" FromRole="Zdjecie" ToRole="Zwierze" />
+        </EntityType>
+        <EntityType Name="Zwierze">
+          <Key>
+            <PropertyRef Name="Zwr_GIDNumer" />
+          </Key>
+          <Property Name="Zwr_GIDNumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zwr_GatNumer" Type="Int32" Nullable="false" />
+          <Property Name="Zwr_Imie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Zwr_DataPrzyjecia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Zwr_Plec" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Zwr_Avatar" Type="Int32" />
+          <Property Name="Zwr_Opis" Type="String" MaxLength="240" FixedLength="false" Unicode="false" />
+          <Property Name="Zwr_Rasa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Zwr_KojNumer" Type="Int32" />
+          <NavigationProperty Name="Gatunek" Relationship="Self.FK_Zwierze_Gatunek" FromRole="Zwierze" ToRole="Gatunek" />
+          <NavigationProperty Name="Kojec" Relationship="Self.FK_Zwierze_Kojec" FromRole="Zwierze" ToRole="Kojec" />
+          <NavigationProperty Name="KsiazeczkaZdrowiaNag" Relationship="Self.FK_KsiazeczkaZdrowiaNag_Zwierze" FromRole="Zwierze" ToRole="KsiazeczkaZdrowiaNag" />
+          <NavigationProperty Name="Zdjecie" Relationship="Self.FK_Zdjecie_Zwierze" FromRole="Zwierze" ToRole="Zdjecie" />
+          <NavigationProperty Name="Zdjecie1" Relationship="Self.FK_Zwierze_Zdjecie" FromRole="Zwierze" ToRole="Zdjecie" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KarmaZapotrzebowanie_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="KarmaZapotrzebowanie" Type="Self.KarmaZapotrzebowanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="KarmaZapotrzebowanie">
+              <PropertyRef Name="Zap_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Strefa_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Strefa" Type="Self.Strefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="Strefa">
+              <PropertyRef Name="Str_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="Gat_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_GatNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kojec_Strefa">
+          <End Role="Strefa" Type="Self.Strefa" Multiplicity="1" />
+          <End Role="Kojec" Type="Self.Kojec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Strefa">
+              <PropertyRef Name="Str_GIDNumer" />
+            </Principal>
+            <Dependent Role="Kojec">
+              <PropertyRef Name="Koj_StrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Kojec">
+          <End Role="Kojec" Type="Self.Kojec" Multiplicity="0..1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kojec">
+              <PropertyRef Name="Koj_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_KojNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag">
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="1" />
+          <End Role="KsiazeczkaZdrowiaElem" Type="Self.KsiazeczkaZdrowiaElem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_GIDNumer" />
+            </Principal>
+            <Dependent Role="KsiazeczkaZdrowiaElem">
+              <PropertyRef Name="KzE_GIDNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leczenie_KsiazeczkaZdrowiaElem">
+          <End Role="KsiazeczkaZdrowiaElem" Type="Self.KsiazeczkaZdrowiaElem" Multiplicity="1" />
+          <End Role="Leczenie" Type="Self.Leczenie" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaElem">
+              <PropertyRef Name="KzE_GIDLp" />
+            </Principal>
+            <Dependent Role="Leczenie">
+              <PropertyRef Name="Lec_GIDLp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KsiazeczkaZdrowiaNag_Zwierze">
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="1" />
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zwierze">
+              <PropertyRef Name="Zwr_GIDNumer" />
+            </Principal>
+            <Dependent Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_ZwrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leczenie_KsiazeczkaZdrowiaNag">
+          <End Role="KsiazeczkaZdrowiaNag" Type="Self.KsiazeczkaZdrowiaNag" Multiplicity="1" />
+          <End Role="Leczenie" Type="Self.Leczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KsiazeczkaZdrowiaNag">
+              <PropertyRef Name="KzN_GIDNumer" />
+            </Principal>
+            <Dependent Role="Leczenie">
+              <PropertyRef Name="Lec_GIDNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zdjecie_Zwierze">
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="1" />
+          <End Role="Zdjecie" Type="Self.Zdjecie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zwierze">
+              <PropertyRef Name="Zwr_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zdjecie">
+              <PropertyRef Name="Zdj_ZwrNumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zwierze_Zdjecie">
+          <End Role="Zdjecie" Type="Self.Zdjecie" Multiplicity="0..1" />
+          <End Role="Zwierze" Type="Self.Zwierze" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zdjecie">
+              <PropertyRef Name="Zdj_GIDNumer" />
+            </Principal>
+            <Dependent Role="Zwierze">
+              <PropertyRef Name="Zwr_Avatar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AnimalShelterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" />
+          <EntitySet Name="KarmaZapotrzebowanie" EntityType="Self.KarmaZapotrzebowanie" />
+          <EntitySet Name="Kojec" EntityType="Self.Kojec" />
+          <EntitySet Name="KsiazeczkaZdrowiaElem" EntityType="Self.KsiazeczkaZdrowiaElem" />
+          <EntitySet Name="KsiazeczkaZdrowiaNag" EntityType="Self.KsiazeczkaZdrowiaNag" />
+          <EntitySet Name="Leczenie" EntityType="Self.Leczenie" />
+          <EntitySet Name="Strefa" EntityType="Self.Strefa" />
+          <EntitySet Name="Zdjecie" EntityType="Self.Zdjecie" />
+          <EntitySet Name="Zwierze" EntityType="Self.Zwierze" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KarmaZapotrzebowanie_Gatunek" Association="Self.FK_KarmaZapotrzebowanie_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="KarmaZapotrzebowanie" EntitySet="KarmaZapotrzebowanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Strefa_Gatunek" Association="Self.FK_Strefa_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Strefa" EntitySet="Strefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Gatunek" Association="Self.FK_Zwierze_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kojec_Strefa" Association="Self.FK_Kojec_Strefa">
+            <End Role="Strefa" EntitySet="Strefa" />
+            <End Role="Kojec" EntitySet="Kojec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Kojec" Association="Self.FK_Zwierze_Kojec">
+            <End Role="Kojec" EntitySet="Kojec" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag" Association="Self.FK_KsiazeczkaZdrowiaElem_KsiazeczkaZdrowiaNag">
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+            <End Role="KsiazeczkaZdrowiaElem" EntitySet="KsiazeczkaZdrowiaElem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leczenie_KsiazeczkaZdrowiaElem" Association="Self.FK_Leczenie_KsiazeczkaZdrowiaElem">
+            <End Role="KsiazeczkaZdrowiaElem" EntitySet="KsiazeczkaZdrowiaElem" />
+            <End Role="Leczenie" EntitySet="Leczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KsiazeczkaZdrowiaNag_Zwierze" Association="Self.FK_KsiazeczkaZdrowiaNag_Zwierze">
+            <End Role="Zwierze" EntitySet="Zwierze" />
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leczenie_KsiazeczkaZdrowiaNag" Association="Self.FK_Leczenie_KsiazeczkaZdrowiaNag">
+            <End Role="KsiazeczkaZdrowiaNag" EntitySet="KsiazeczkaZdrowiaNag" />
+            <End Role="Leczenie" EntitySet="Leczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zdjecie_Zwierze" Association="Self.FK_Zdjecie_Zwierze">
+            <End Role="Zwierze" EntitySet="Zwierze" />
+            <End Role="Zdjecie" EntitySet="Zdjecie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zwierze_Zdjecie" Association="Self.FK_Zwierze_Zdjecie">
+            <End Role="Zdjecie" EntitySet="Zdjecie" />
+            <End Role="Zwierze" EntitySet="Zwierze" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnimalShelterModelStoreContainer" CdmEntityContainer="AnimalShelterEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="AnimalShelterModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="AnimalShelterModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="AnimalShelterModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="AnimalShelterModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="AnimalShelterModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gatunek">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Gatunek">
+              <MappingFragment StoreEntitySet="Gatunek">
+                <ScalarProperty Name="Gat_GIDNumer" ColumnName="Gat_GIDNumer" />
+                <ScalarProperty Name="Gat_Nazwa" ColumnName="Gat_Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KarmaZapotrzebowanie">
+            <EntityTypeMapping TypeName="AnimalShelterModel.KarmaZapotrzebowanie">
+              <MappingFragment StoreEntitySet="KarmaZapotrzebowanie">
+                <ScalarProperty Name="Zap_GIDNumer" ColumnName="Zap_GIDNumer" />
+                <ScalarProperty Name="Zap_GatNumer" ColumnName="Zap_GatNumer" />
+                <ScalarProperty Name="Zap_NazwaKarmy" ColumnName="Zap_NazwaKarmy" />
+                <ScalarProperty Name="Zap_IloscAktualna" ColumnName="Zap_IloscAktualna" />
+                <ScalarProperty Name="Zap_IloscPotrzebna" ColumnName="Zap_IloscPotrzebna" />
+                <ScalarProperty Name="Zap_Jm" ColumnName="Zap_Jm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kojec">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Kojec">
+              <MappingFragment StoreEntitySet="Kojec">
+                <ScalarProperty Name="Koj_GIDNumer" ColumnName="Koj_GIDNumer" />
+                <ScalarProperty Name="Koj_StrNumer" ColumnName="Koj_StrNumer" />
+                <ScalarProperty Name="Koj_Kod" ColumnName="Koj_Kod" />
+                <ScalarProperty Name="Koj_Nazwa" ColumnName="Koj_Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KsiazeczkaZdrowiaElem">
+            <EntityTypeMapping TypeName="AnimalShelterModel.KsiazeczkaZdrowiaElem">
+              <MappingFragment StoreEntitySet="KsiazeczkaZdrowiaElem">
+                <ScalarProperty Name="KzE_GIDNumer" ColumnName="KzE_GIDNumer" />
+                <ScalarProperty Name="KzE_GIDLp" ColumnName="KzE_GIDLp" />
+                <ScalarProperty Name="KzE_OpisBadania" ColumnName="KzE_OpisBadania" />
+                <ScalarProperty Name="KzE_WynikBadania" ColumnName="KzE_WynikBadania" />
+                <ScalarProperty Name="KzE_DataBadania" ColumnName="KzE_DataBadania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KsiazeczkaZdrowiaNag">
+            <EntityTypeMapping TypeName="AnimalShelterModel.KsiazeczkaZdrowiaNag">
+              <MappingFragment StoreEntitySet="KsiazeczkaZdrowiaNag">
+                <ScalarProperty Name="KzN_GIDNumer" ColumnName="KzN_GIDNumer" />
+                <ScalarProperty Name="KzN_ZwrNumer" ColumnName="KzN_ZwrNumer" />
+                <ScalarProperty Name="KzN_Nazwa" ColumnName="KzN_Nazwa" />
+                <ScalarProperty Name="KzN_DataUtworzenia" ColumnName="KzN_DataUtworzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leczenie">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Leczenie">
+              <MappingFragment StoreEntitySet="Leczenie">
+                <ScalarProperty Name="Lec_GIDNumer" ColumnName="Lec_GIDNumer" />
+                <ScalarProperty Name="Lec_GIDLp" ColumnName="Lec_GIDLp" />
+                <ScalarProperty Name="Lec_Opis" ColumnName="Lec_Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Strefa">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Strefa">
+              <MappingFragment StoreEntitySet="Strefa">
+                <ScalarProperty Name="Str_GIDNumer" ColumnName="Str_GIDNumer" />
+                <ScalarProperty Name="Str_GatNumer" ColumnName="Str_GatNumer" />
+                <ScalarProperty Name="Str_Kod" ColumnName="Str_Kod" />
+                <ScalarProperty Name="Str_Nazwa" ColumnName="Str_Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zdjecie">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Zdjecie">
+              <MappingFragment StoreEntitySet="Zdjecie">
+                <ScalarProperty Name="Zdj_GIDNumer" ColumnName="Zdj_GIDNumer" />
+                <ScalarProperty Name="Zdj_ZwrNumer" ColumnName="Zdj_ZwrNumer" />
+                <ScalarProperty Name="Zdj_Tytul" ColumnName="Zdj_Tytul" />
+                <ScalarProperty Name="Zdj_Sciezka" ColumnName="Zdj_Sciezka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zwierze">
+            <EntityTypeMapping TypeName="AnimalShelterModel.Zwierze">
+              <MappingFragment StoreEntitySet="Zwierze">
+                <ScalarProperty Name="Zwr_GIDNumer" ColumnName="Zwr_GIDNumer" />
+                <ScalarProperty Name="Zwr_GatNumer" ColumnName="Zwr_GatNumer" />
+                <ScalarProperty Name="Zwr_Imie" ColumnName="Zwr_Imie" />
+                <ScalarProperty Name="Zwr_DataPrzyjecia" ColumnName="Zwr_DataPrzyjecia" />
+                <ScalarProperty Name="Zwr_Plec" ColumnName="Zwr_Plec" />
+                <ScalarProperty Name="Zwr_Avatar" ColumnName="Zwr_Avatar" />
+                <ScalarProperty Name="Zwr_Opis" ColumnName="Zwr_Opis" />
+                <ScalarProperty Name="Zwr_Rasa" ColumnName="Zwr_Rasa" />
+                <ScalarProperty Name="Zwr_KojNumer" ColumnName="Zwr_KojNumer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="AnimalShelterModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

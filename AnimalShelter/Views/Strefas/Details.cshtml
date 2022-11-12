@@ -1,0 +1,42 @@
+﻿@model AnimalShelter.Models.Strefa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Strefa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Str_Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Str_Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Str_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Str_Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gatunek.Gat_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gatunek.Gat_Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Str_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

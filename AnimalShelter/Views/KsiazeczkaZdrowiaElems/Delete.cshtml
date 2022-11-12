@@ -1,0 +1,64 @@
+﻿@model AnimalShelter.Models.KsiazeczkaZdrowiaElem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>KsiazeczkaZdrowiaElem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KzE_OpisBadania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KzE_OpisBadania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KzE_WynikBadania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KzE_WynikBadania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KzE_DataBadania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KzE_DataBadania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leczenie.Lec_Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leczenie.Lec_Opis)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

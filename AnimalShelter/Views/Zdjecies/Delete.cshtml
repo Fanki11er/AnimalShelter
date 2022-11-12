@@ -1,0 +1,48 @@
+﻿@model AnimalShelter.Models.Zdjecie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Zdjecie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdj_Tytul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdj_Tytul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdj_Sciezka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdj_Sciezka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwierze.Zwr_Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwierze.Zwr_Imie)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

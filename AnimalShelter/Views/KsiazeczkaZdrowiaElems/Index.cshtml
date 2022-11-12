@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AnimalShelter.Models.KsiazeczkaZdrowiaElem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KzE_OpisBadania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KzE_WynikBadania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KzE_DataBadania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Leczenie.Lec_Opis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KzE_OpisBadania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KzE_WynikBadania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KzE_DataBadania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Leczenie.Lec_Opis)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KzE_GIDLp }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KzE_GIDLp }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KzE_GIDLp })
+        </td>
+    </tr>
+}
+
+</table>

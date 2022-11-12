@@ -1,0 +1,42 @@
+﻿@model AnimalShelter.Models.Zdjecie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zdjecie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdj_Tytul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdj_Tytul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdj_Sciezka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdj_Sciezka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwierze.Zwr_Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwierze.Zwr_Imie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Zdj_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

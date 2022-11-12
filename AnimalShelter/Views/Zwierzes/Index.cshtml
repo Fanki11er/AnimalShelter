@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AnimalShelter.Models.Zwierze>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwr_Imie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwr_DataPrzyjecia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwr_Plec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwr_Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwr_Rasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gatunek.Gat_Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kojec.Koj_Kod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zdjecie1.Zdj_Tytul)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwr_Imie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwr_DataPrzyjecia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwr_Plec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwr_Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwr_Rasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gatunek.Gat_Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kojec.Koj_Kod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zdjecie1.Zdj_Tytul)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Zwr_GIDNumer }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Zwr_GIDNumer }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Zwr_GIDNumer })
+        </td>
+    </tr>
+}
+
+</table>

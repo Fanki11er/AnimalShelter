@@ -1,0 +1,58 @@
+﻿@model AnimalShelter.Models.KarmaZapotrzebowanie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KarmaZapotrzebowanie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Zap_NazwaKarmy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zap_NazwaKarmy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zap_IloscAktualna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zap_IloscAktualna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zap_IloscPotrzebna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zap_IloscPotrzebna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zap_Jm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zap_Jm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gatunek.Gat_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gatunek.Gat_Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Zap_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

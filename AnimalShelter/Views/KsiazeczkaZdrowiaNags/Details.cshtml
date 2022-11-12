@@ -1,0 +1,42 @@
+﻿@model AnimalShelter.Models.KsiazeczkaZdrowiaNag
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KsiazeczkaZdrowiaNag</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KzN_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KzN_Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KzN_DataUtworzenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KzN_DataUtworzenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwierze.Zwr_Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwierze.Zwr_Imie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KzN_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

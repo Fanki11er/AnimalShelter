@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AnimalShelter.Models.Gatunek>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Gat_Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gat_Nazwa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Gat_GIDNumer }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Gat_GIDNumer }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Gat_GIDNumer })
+        </td>
+    </tr>
+}
+
+</table>

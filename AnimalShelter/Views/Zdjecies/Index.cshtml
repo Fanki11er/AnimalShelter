@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AnimalShelter.Models.Zdjecie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Zdj_Tytul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zdj_Sciezka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zwierze.Zwr_Imie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zdj_Tytul)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zdj_Sciezka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zwierze.Zwr_Imie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Zdj_GIDNumer }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Zdj_GIDNumer }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Zdj_GIDNumer })
+        </td>
+    </tr>
+}
+
+</table>

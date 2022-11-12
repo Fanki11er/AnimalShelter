@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AnimalShelter.Models.Leczenie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lec_Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KsiazeczkaZdrowiaElem.KzE_OpisBadania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lec_Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KsiazeczkaZdrowiaElem.KzE_OpisBadania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KsiazeczkaZdrowiaNag.KzN_Nazwa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Lec_GIDLp }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Lec_GIDLp }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Lec_GIDLp })
+        </td>
+    </tr>
+}
+
+</table>

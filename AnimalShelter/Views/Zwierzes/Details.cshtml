@@ -1,0 +1,82 @@
+﻿@model AnimalShelter.Models.Zwierze
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zwierze</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwr_Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwr_Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwr_DataPrzyjecia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwr_DataPrzyjecia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwr_Plec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwr_Plec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwr_Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwr_Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zwr_Rasa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zwr_Rasa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gatunek.Gat_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gatunek.Gat_Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kojec.Koj_Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kojec.Koj_Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zdjecie1.Zdj_Tytul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zdjecie1.Zdj_Tytul)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Zwr_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

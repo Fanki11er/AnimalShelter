@@ -1,0 +1,42 @@
+﻿@model AnimalShelter.Models.Kojec
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kojec</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Koj_Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Koj_Kod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Koj_Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Koj_Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Strefa.Str_Kod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Strefa.Str_Kod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Koj_GIDNumer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
